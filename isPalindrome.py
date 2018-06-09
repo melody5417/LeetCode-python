@@ -36,3 +36,18 @@ class Solution:
             absX /= 10
         return reverseX == x
     print(isPalindrome2(-121))
+    
+    def isPalindrome3(x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0:
+            return False
+        reverseX, absX = 0, abs(x)
+        while absX > reverseX:
+            reverseX = reverseX * 10 + absX % 10
+            absX /= 10
+        ' when the length is an odd number, we can get rid of the middle digit by reverseX / 10 '
+        return reverseX == absX or absX == reverseX / 10
+    print(isPalindrome3(121))
